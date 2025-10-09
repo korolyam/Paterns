@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Classes.Mazes.MapSites.Walls;
 
 namespace Classes.Mazes.MapSites.Rooms
 {
-    internal interface IRoom : IMapSite
+    public interface IRoom : IMapSite
     {
-        internal void SetSide(IMapSite side)
+        public void SetSide(Direction direction,IMapSite side)
         {
 
         }
-        internal IMapSite GetSide()
+        public IMapSite GetSide(Direction direction)
         {
-            return new 
+            return new CommonWall();
         }
+        public void Enter(Direction direction);
     }
 }

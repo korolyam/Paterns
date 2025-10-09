@@ -7,27 +7,29 @@ using Classes.Mazes;
 using Classes.Mazes.MapSites.Rooms;
 using Classes.Mazes.MapSites.Doors;
 using Classes.Mazes.MapSites.Walls;
-
-
 namespace AsbtractFactory.MazeFactories
 {
-    public interface IMazeFactory
+    public class BombedMazeFactory : IMazeFactory
     {
+        public BombedMazeFactory()
+        {
+
+        }
         public IMaze MakeMaze()
         {
-            return new CommonMaze();
+            return new BombedMaze();
         }
         public IRoom MakeRoom(int n)
         {
-            return new CommonRoom(n);
+            return new RoomWithABomb(n);
         }
         public IDoor MakeDoor(IRoom room1, IRoom room2)
         {
-            return new CommonDoor(room1,room2);
+            return new CommonDoor(room1, room2);
         }
         public IWall MakeWall()
         {
-            return new CommonWall();
+            return new BombedWall();
         }
     }
 }

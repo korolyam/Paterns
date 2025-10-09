@@ -8,26 +8,33 @@ using Classes.Mazes.MapSites.Rooms;
 using Classes.Mazes.MapSites.Doors;
 using Classes.Mazes.MapSites.Walls;
 
-
 namespace AsbtractFactory.MazeFactories
 {
-    public interface IMazeFactory
+    public class EnchantedMazeFactory : IMazeFactory
     {
+        public EnchantedMazeFactory()
+        {
+
+        }
         public IMaze MakeMaze()
         {
-            return new CommonMaze();
+            return new EnchantedMaze();
         }
         public IRoom MakeRoom(int n)
         {
-            return new CommonRoom(n);
+            return new EnchantedRoom(n, CastSpell());
         }
         public IDoor MakeDoor(IRoom room1, IRoom room2)
         {
-            return new CommonDoor(room1,room2);
+            return new DoorNeedingSpell(room1, room2);
         }
         public IWall MakeWall()
         {
             return new CommonWall();
+        }
+        protected Spell CastSpell()
+        {
+            return new Spell();
         }
     }
 }

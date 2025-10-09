@@ -11,13 +11,15 @@ namespace Classes.Mazes
 {
     public interface IMaze
     {
-        internal void AddRoom(IRoom room)
+        static List<IRoom> rooms;
+        public void AddRoom(IRoom room)
         {
 
         }
-        internal int RoomNo()
+        public int RoomNo()
         {
             return 0;
         }
+        public List<IRoom> Rooms { get { return rooms; } }
     }
 }

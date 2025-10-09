@@ -7,11 +7,11 @@ using Classes.Mazes.MapSites.Rooms;
 
 namespace Classes.Mazes
 {
-    public class CommonMaze : IMaze
+    public class EnchantedMaze : IMaze
     {
         private int number_of_rooms = 0;
         private List<IRoom> rooms;
-        public CommonMaze()
+        public EnchantedMaze()
         {
             rooms = new List<IRoom>();
         }

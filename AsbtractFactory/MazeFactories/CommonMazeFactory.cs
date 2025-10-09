@@ -8,11 +8,14 @@ using Classes.Mazes.MapSites.Rooms;
 using Classes.Mazes.MapSites.Doors;
 using Classes.Mazes.MapSites.Walls;
 
-
 namespace AsbtractFactory.MazeFactories
 {
-    public interface IMazeFactory
+    public class CommonMazeFactory : IMazeFactory
     {
+        public CommonMazeFactory()
+        {
+
+        }
         public IMaze MakeMaze()
         {
             return new CommonMaze();
@@ -23,7 +26,7 @@ namespace AsbtractFactory.MazeFactories
         }
         public IDoor MakeDoor(IRoom room1, IRoom room2)
         {
-            return new CommonDoor(room1,room2);
+            return new CommonDoor(room1, room2);
         }
         public IWall MakeWall()
         {
