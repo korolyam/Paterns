@@ -16,22 +16,35 @@ namespace AsbtractFactory.MazeFactories
         {
 
         }
+
         public IMaze MakeMaze()
         {
-            return new EnchantedMaze();
+            return new Maze();
         }
-        public IRoom MakeRoom(int n)
+
+        public Room MakeRoom(int n)
         {
-            return new EnchantedRoom(n, CastSpell());
+            if (n > 0)
+            {
+                return new EnchantedRoom(n, CastSpell());
+            }
+            throw new ArgumentOutOfRangeException("Нельзя создать комнату с отрицательным значением");
         }
-        public IDoor MakeDoor(IRoom room1, IRoom room2)
+
+        public IDoor MakeDoor(Room room1, Room room2)
         {
+            if (room1 == null || room2 == null)
+            {
+                throw new ArgumentNullException("Таких комнат ещё нет");
+            }
             return new DoorNeedingSpell(room1, room2);
         }
+
         public IWall MakeWall()
         {
             return new CommonWall();
         }
+
         protected Spell CastSpell()
         {
             return new Spell();

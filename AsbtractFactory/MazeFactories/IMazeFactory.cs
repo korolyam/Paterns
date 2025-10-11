@@ -13,21 +13,12 @@ namespace AsbtractFactory.MazeFactories
 {
     public interface IMazeFactory
     {
-        public IMaze MakeMaze()
-        {
-            return new CommonMaze();
-        }
-        public IRoom MakeRoom(int n)
-        {
-            return new CommonRoom(n);
-        }
-        public IDoor MakeDoor(IRoom room1, IRoom room2)
-        {
-            return new CommonDoor(room1,room2);
-        }
-        public IWall MakeWall()
-        {
-            return new CommonWall();
-        }
+        abstract IMaze MakeMaze();
+
+        abstract Room MakeRoom(int n);
+
+        abstract IDoor MakeDoor(Room room1, Room room2);
+
+        abstract IWall MakeWall();
     }
 }

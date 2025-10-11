@@ -8,7 +8,7 @@ namespace Classes.Mazes.MapSites
 {
     public interface IMapSite
     {
-        internal void Enter()
+        virtual void Enter()
         {
 
         }

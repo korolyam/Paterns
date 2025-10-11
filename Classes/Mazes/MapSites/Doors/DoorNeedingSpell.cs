@@ -9,26 +9,27 @@ namespace Classes.Mazes.MapSites.Doors
 {
     public class DoorNeedingSpell : IDoor
     {
-            private IRoom room_out;
-            private IRoom room_in;
-            private bool is_open;
-            public DoorNeedingSpell(IRoom room_out, IRoom room_in)
+        private Room roomOut;
+        private Room roomIn;
+        private bool isOpen;
+        public DoorNeedingSpell(Room roomOut, Room roomIn)
+        {
+            this.roomOut = roomOut ?? throw new ArgumentNullException("Такой комнаты нет");
+            this.roomIn = roomIn ?? throw new ArgumentNullException("Такой комнаты нет");
+            this.isOpen = false;
+        }
+
+        public void Enter()
+        {
+            if (this.isOpen)
             {
-                this.room_out = room_out ?? throw new ArgumentNullException("Такой комнаты нет");
-                this.room_in = room_in ?? throw new ArgumentNullException("Такой комнаты нет");
-                this.is_open = false;
-            }
-            public void Enter()
-            {
-                if (is_open)
-                {
                 Console.WriteLine("Вы прошли через дверь");
-                }
-                else
-                {
-                Console.WriteLine("Вы ударились о закрытую дверь");
-                }
             }
+            else
+            {
+                Console.WriteLine("Вы ударились о закрытую дверь");
+            }
+        }
     }   
 }
 

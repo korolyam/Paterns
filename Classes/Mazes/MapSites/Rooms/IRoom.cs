@@ -7,16 +7,36 @@ using Classes.Mazes.MapSites.Walls;
 
 namespace Classes.Mazes.MapSites.Rooms
 {
-    public interface IRoom : IMapSite
+    public abstract class Room : IMapSite
     {
-        public void SetSide(Direction direction,IMapSite side)
+        private  Dictionary<Direction, IMapSite> sides = new Dictionary<Direction, IMapSite>();
+        public virtual void SetSide(Direction direction, IMapSite side)
         {
+            if (side is Room)
+            {
+                throw new ArgumentException("Нельзя поставить комнату в качестве стены");
+            }
+            else
+            {
+                this.sides[direction] = side;
+            }
+        }
 
-        }
-        public IMapSite GetSide(Direction direction)
+        public virtual IMapSite GetSide(Direction direction)
         {
-            return new CommonWall();
+            if (this.sides[direction] == null)
+            {
+                throw new ArgumentException("Этой стороны ещё не существует");
+            }
+            else
+            {
+                return this.sides[direction];
+            }
         }
-        public void Enter(Direction direction);
+
+        public virtual void Enter(Direction direction)
+        {
+            this.sides[direction].Enter();
+        }
     }
 }

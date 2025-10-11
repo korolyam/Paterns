@@ -8,6 +8,6 @@ namespace Classes.Mazes.MapSites.Doors
 {
     public interface IDoor : IMapSite
     {
-        
+
     }
 }

@@ -7,23 +7,31 @@ using Classes.Mazes.MapSites.Rooms;
 
 namespace Classes.Mazes
 {
-    public class CommonMaze : IMaze
+    public class Maze : IMaze
     {
-        private int number_of_rooms = 0;
-        private List<IRoom> rooms;
-        public CommonMaze()
+        private int numberOfRooms = 0;
+        private List<Room> rooms;
+
+        public List<Room> Rooms { get { return this.rooms; } }
+
+        public Maze()
         {
-            rooms = new List<IRoom>();
+            this.rooms = new List<Room>();
         }
-        public void AddRoom(IRoom room)
+
+        public void AddRoom(Room room)
         {
-            number_of_rooms++;
-            rooms.Add(room);
+            if (room == null)
+            {
+                throw new ArgumentNullException("Такой комнаты нет");
+            }
+            this.numberOfRooms++;
+            this.rooms.Add(room);
         }
+
         public int RoomNo()
         {
-            return number_of_rooms;
+            return this.numberOfRooms;
         }
-        public List<IRoom> Rooms { get { return rooms; } }
     }
 }
