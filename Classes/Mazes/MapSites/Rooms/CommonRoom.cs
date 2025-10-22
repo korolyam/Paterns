@@ -8,8 +8,6 @@ namespace Classes.Mazes.MapSites.Rooms
 {
     public class CommonRoom :Room
     {
-        private int noOfRoom;
-        private Dictionary<Direction, IMapSite> sides;
         public CommonRoom(int noOfRoom)
         {
             if (noOfRoom > 0)

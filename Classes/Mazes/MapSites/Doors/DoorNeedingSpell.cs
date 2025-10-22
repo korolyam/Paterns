@@ -7,28 +7,16 @@ using Classes.Mazes.MapSites.Rooms;
 
 namespace Classes.Mazes.MapSites.Doors
 {
-    public class DoorNeedingSpell : IDoor
+    public class DoorNeedingSpell : CommonDoor
     {
         private Room roomOut;
         private Room roomIn;
         private bool isOpen;
-        public DoorNeedingSpell(Room roomOut, Room roomIn)
+        public DoorNeedingSpell(Room roomOut, Room roomIn) : base(roomOut,roomIn)
         {
             this.roomOut = roomOut ?? throw new ArgumentNullException("Такой комнаты нет");
             this.roomIn = roomIn ?? throw new ArgumentNullException("Такой комнаты нет");
             this.isOpen = false;
-        }
-
-        public void Enter()
-        {
-            if (this.isOpen)
-            {
-                Console.WriteLine("Вы прошли через дверь");
-            }
-            else
-            {
-                Console.WriteLine("Вы ударились о закрытую дверь");
-            }
         }
     }   
 }

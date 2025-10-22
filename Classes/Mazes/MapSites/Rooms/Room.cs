@@ -9,7 +9,8 @@ namespace Classes.Mazes.MapSites.Rooms
 {
     public abstract class Room : IMapSite
     {
-        private  Dictionary<Direction, IMapSite> sides = new Dictionary<Direction, IMapSite>();
+        protected int noOfRoom;
+        protected  Dictionary<Direction, IMapSite> sides = new Dictionary<Direction, IMapSite>();
         public virtual void SetSide(Direction direction, IMapSite side)
         {
             if (side is Room)
@@ -33,8 +34,12 @@ namespace Classes.Mazes.MapSites.Rooms
                 return this.sides[direction];
             }
         }
+        public void Enter()
+        {
+            this.sides[Direction.North].Enter();
+        }
 
-        public virtual void Enter(Direction direction)
+        public void Enter(Direction direction)
         {
             this.sides[direction].Enter();
         }

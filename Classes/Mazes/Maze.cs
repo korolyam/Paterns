@@ -10,9 +10,9 @@ namespace Classes.Mazes
     public class Maze : IMaze
     {
         private int numberOfRooms = 0;
-        private List<Room> rooms;
+        public int NumberOfRooms { get { return this.numberOfRooms; } }
 
-        public List<Room> Rooms { get { return this.rooms; } }
+        private List<Room> rooms;
 
         public Maze()
         {
@@ -29,9 +29,13 @@ namespace Classes.Mazes
             this.rooms.Add(room);
         }
 
-        public int RoomNo()
+        public Room GetRoom(int RoomNo)
         {
-            return this.numberOfRooms;
+            if (RoomNo - 1 > this.numberOfRooms)
+            {
+                throw new ArgumentOutOfRangeException("Такой комнаты нет");
+            }
+            return this.rooms[RoomNo - 1];
         }
     }
 }

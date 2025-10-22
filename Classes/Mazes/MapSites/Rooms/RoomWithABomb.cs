@@ -8,8 +8,6 @@ namespace Classes.Mazes.MapSites.Rooms
 {
     public class RoomWithABomb : Room
     {
-        private int noOfRoom;
-        private Dictionary<Direction, IMapSite> sides;
         public RoomWithABomb(int noOfRoom)
         {
             if (noOfRoom > 0)

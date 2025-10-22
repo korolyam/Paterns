@@ -8,8 +8,6 @@ namespace Classes.Mazes.MapSites.Rooms
 {
     public class EnchantedRoom : Room
     {
-        private int noOfRoom;
-        private Dictionary<Direction, IMapSite> sides;
         public EnchantedRoom(int noOfRoom, Spell spell)
         {
             if (noOfRoom > 0)
