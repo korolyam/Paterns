@@ -9,8 +9,7 @@ namespace Classes.Mazes
 {
     public class Maze : IMaze
     {
-        private int numberOfRooms = 0;
-        public int NumberOfRooms { get { return this.numberOfRooms; } }
+        public int NumberOfRooms { get; set; }
 
         private List<Room> rooms;
 
@@ -25,17 +24,17 @@ namespace Classes.Mazes
             {
                 throw new ArgumentNullException("Такой комнаты нет");
             }
-            this.numberOfRooms++;
+            NumberOfRooms++;
             this.rooms.Add(room);
         }
 
-        public Room GetRoom(int RoomNo)
+        public Room GetRoomFromItsInternalId(int roomId)
         {
-            if (RoomNo - 1 > this.numberOfRooms)
+            if (roomId > NumberOfRooms)
             {
                 throw new ArgumentOutOfRangeException("Такой комнаты нет");
             }
-            return this.rooms[RoomNo - 1];
+            return this.rooms[roomId];
         }
     }
 }

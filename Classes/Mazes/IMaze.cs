@@ -13,6 +13,6 @@ namespace Classes.Mazes
     {
         void AddRoom(Room room);
 
-        Room GetRoom(int roomId);
+        Room GetRoomFromItsInternalId(int roomId);
     }
 }

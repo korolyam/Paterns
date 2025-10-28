@@ -9,14 +9,11 @@ namespace Classes.Mazes.MapSites.Doors
 {
     public class DoorNeedingSpell : CommonDoor
     {
-        private Room roomOut;
-        private Room roomIn;
-        private bool isOpen;
         public DoorNeedingSpell(Room roomOut, Room roomIn) : base(roomOut,roomIn)
         {
-            this.roomOut = roomOut ?? throw new ArgumentNullException("Такой комнаты нет");
-            this.roomIn = roomIn ?? throw new ArgumentNullException("Такой комнаты нет");
-            this.isOpen = false;
+            RoomOut = roomOut ?? throw new ArgumentNullException("Такой комнаты нет");
+            RoomIn = roomIn ?? throw new ArgumentNullException("Такой комнаты нет");
+            IsOpen = false;
         }
     }   
 }

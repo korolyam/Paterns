@@ -9,19 +9,19 @@ namespace Classes.Mazes.MapSites.Doors
 {
     public class CommonDoor : IDoor
     {
-        private Room roomOut;
-        private Room roomIn;
-        private bool isOpen;
+        protected Room RoomOut { get; set; }
+        protected Room RoomIn { get; set; }
+        protected bool IsOpen { get; set; }
         public CommonDoor(Room roomOut, Room roomIn)
         {
-            this.roomOut = roomOut ?? throw new ArgumentNullException("Такой комнаты нет");
-            this.roomIn = roomIn ?? throw new ArgumentNullException("Такой комнаты нет");
-            this.isOpen = true;
+            RoomOut = roomOut ?? throw new ArgumentNullException("Такой комнаты нет");
+            RoomIn = roomIn ?? throw new ArgumentNullException("Такой комнаты нет");
+            IsOpen = true;
         }
 
         public void Enter()
         {
-            if (this.isOpen)
+            if (IsOpen)
             {
                 Console.WriteLine("Вы прошли через дверь");
             }

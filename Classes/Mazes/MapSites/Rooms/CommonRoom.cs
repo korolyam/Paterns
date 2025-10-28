@@ -10,10 +10,10 @@ namespace Classes.Mazes.MapSites.Rooms
     {
         public CommonRoom(int noOfRoom)
         {
-            if (noOfRoom > 0)
+            if (noOfRoom >= 0)
             {
-                this.noOfRoom = noOfRoom;
-                this.sides = new Dictionary<Direction, IMapSite>();
+                NoOfRoom = noOfRoom;
+                Sides = new Dictionary<Direction, IMapSite>();
             }
             else
             {

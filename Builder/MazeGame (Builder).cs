@@ -30,16 +30,16 @@ class MazeGame_Builder
                         Main();
                         break;
                     case 'w':
-                        maze.GetRoom(1).Enter(Direction.North);
+                        maze.GetRoomFromItsInternalId(0).Enter(Direction.North);
                         break;
                     case 'a':
-                        maze.GetRoom(1).Enter(Direction.West);
+                        maze.GetRoomFromItsInternalId(0).Enter(Direction.West);
                         break;
                     case 's':
-                        maze.GetRoom(1).Enter(Direction.South);
+                        maze.GetRoomFromItsInternalId(0).Enter(Direction.South);
                         break;
                     case 'd':
-                        maze.GetRoom(1).Enter(Direction.East);
+                        maze.GetRoomFromItsInternalId(0).Enter(Direction.East);
                         break;
                 }
                 break;
@@ -52,16 +52,16 @@ class MazeGame_Builder
                         Main();
                         break;
                     case 'w':
-                        maze.GetRoom(2).Enter(Direction.North);
+                        maze.GetRoomFromItsInternalId(1).Enter(Direction.North);
                         break;
                     case 'a':
-                        maze.GetRoom(2).Enter(Direction.West);
+                        maze.GetRoomFromItsInternalId(1).Enter(Direction.West);
                         break;
                     case 's':
-                        maze.GetRoom(2).Enter(Direction.South);
+                        maze.GetRoomFromItsInternalId(1).Enter(Direction.South);
                         break;
                     case 'd':
-                        maze.GetRoom(2).Enter(Direction.East);
+                        maze.GetRoomFromItsInternalId(1).Enter(Direction.East);
                         break;
                 }
                 break;

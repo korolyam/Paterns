@@ -19,9 +19,9 @@ namespace Builder
         public IMaze CreateSimpleMaze()
         {
             this.builder.BuildMaze();
+            this.builder.BuildRoom(0);
             this.builder.BuildRoom(1);
-            this.builder.BuildRoom(2);
-            this.builder.BuildDoor(1, 2);
+            this.builder.BuildDoor(0, 1);
             return this.builder.GetMaze();
         }
     }

@@ -40,13 +40,13 @@ namespace Builder
             this.currentMaze = new Maze();
         }
 
-        public void BuildRoom(int roomNumber)
+        public void BuildRoom(int roomId)
         {
-            if (roomNumber <= 0)
+            if (roomId < 0)
             {
-                throw new ArgumentException("Отрицательных/нулевых комнат не бывает");
+                throw new ArgumentException("Нулевых комнат не бывает");
             }
-            Room room = new CommonRoom(roomNumber);
+            Room room = new CommonRoom(roomId);
             this.currentMaze.AddRoom(room);
             room.SetSide(Direction.North, new CommonWall());
             room.SetSide(Direction.South, new CommonWall());
@@ -60,10 +60,10 @@ namespace Builder
                 var direction = (Direction)directions.GetValue(directionIndex);
                 switch (direction)
                 {
-                    case Direction.North: room.SetSide(Direction.North, this.currentMaze.GetRoom(this.currentMaze.NumberOfRooms - 1).GetSide(Direction.South)); break;
-                    case Direction.East: room.SetSide(Direction.East, this.currentMaze.GetRoom(this.currentMaze.NumberOfRooms - 1).GetSide(Direction.West)); break;
-                    case Direction.West: room.SetSide(Direction.West, this.currentMaze.GetRoom(this.currentMaze.NumberOfRooms - 1).GetSide(Direction.East)); break;
-                    case Direction.South: room.SetSide(Direction.South, this.currentMaze.GetRoom(this.currentMaze.NumberOfRooms - 1).GetSide(Direction.North)); break;
+                    case Direction.North: room.SetSide(Direction.North, this.currentMaze.GetRoomFromItsInternalId(this.currentMaze.NumberOfRooms-2).GetSide(Direction.South)); break;
+                    case Direction.East: room.SetSide(Direction.East, this.currentMaze.GetRoomFromItsInternalId(this.currentMaze.NumberOfRooms-2).GetSide(Direction.West)); break;
+                    case Direction.West: room.SetSide(Direction.West, this.currentMaze.GetRoomFromItsInternalId(this.currentMaze.NumberOfRooms-2).GetSide(Direction.East)); break;
+                    case Direction.South: room.SetSide(Direction.South, this.currentMaze.GetRoomFromItsInternalId(this.currentMaze.NumberOfRooms-2).GetSide(Direction.North)); break;
                 }
             }
         }
@@ -74,8 +74,8 @@ namespace Builder
             {
                 throw new ArgumentException("Таких комнат нет");
             }
-            Room roomOut = this.currentMaze.GetRoom(r1);
-            Room roomIn = this.currentMaze.GetRoom(r2);
+            Room roomOut = this.currentMaze.GetRoomFromItsInternalId(r1);
+            Room roomIn = this.currentMaze.GetRoomFromItsInternalId(r2);
             CommonDoor door = new CommonDoor(roomOut, roomIn);
             Direction dir1 = CommonWall(roomOut, roomIn);
             Direction dir2 = CommonWall(roomIn, roomOut);

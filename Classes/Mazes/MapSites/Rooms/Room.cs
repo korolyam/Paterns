@@ -9,8 +9,8 @@ namespace Classes.Mazes.MapSites.Rooms
 {
     public abstract class Room : IMapSite
     {
-        protected int noOfRoom;
-        protected  Dictionary<Direction, IMapSite> sides = new Dictionary<Direction, IMapSite>();
+        protected int NoOfRoom { get; set; }
+        protected Dictionary<Direction, IMapSite> Sides { get; set; }
         public virtual void SetSide(Direction direction, IMapSite side)
         {
             if (side is Room)
@@ -19,29 +19,22 @@ namespace Classes.Mazes.MapSites.Rooms
             }
             else
             {
-                this.sides[direction] = side;
+                Sides[direction] = side;
             }
         }
 
         public virtual IMapSite GetSide(Direction direction)
         {
-            if (this.sides[direction] == null)
-            {
-                throw new ArgumentException("Этой стороны ещё не существует");
-            }
-            else
-            {
-                return this.sides[direction];
-            }
+            return Sides[direction];         
         }
         public void Enter()
         {
-            this.sides[Direction.North].Enter();
+            Sides[Direction.North].Enter();
         }
 
         public void Enter(Direction direction)
         {
-            this.sides[direction].Enter();
+            Sides[direction].Enter();
         }
     }
 }
