@@ -23,7 +23,7 @@ namespace AsbtractFactory.MazeFactories
 
         public Room MakeRoom(int n)
         {
-            if (n > 0)
+            if (n >= 0)
             {
                 return new RoomWithABomb(n);
             }

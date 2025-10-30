@@ -5,13 +5,14 @@ using Classes.Mazes.MapSites.Walls;
 using Classes.Mazes.MapSites;
 
 namespace Builder;
-class MazeGame_Builder
+class MazeGame2
 {
     static void Main()
     {
         IMazeBuilder builder = new StandartMazeBuilder();
         Director director = new Director(builder);
         IMaze maze = director.CreateSimpleMaze();
+        IMaze bigMaze = director.CreateBigMaze();
         Console.WriteLine("Выберите комнату (1 или 2)");
         char press = Console.ReadKey().KeyChar;
         char press2;
@@ -66,5 +67,6 @@ class MazeGame_Builder
                 }
                 break;
         }
+        bigMaze.GetRoomFromItsInternalId(56).Enter(Direction.North);
     }
 }

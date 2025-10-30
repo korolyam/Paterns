@@ -9,8 +9,8 @@ class MazeGame
     static IMaze CreateMaze(IMazeFactory factory)
     {
         IMaze aMaze = factory.MakeMaze();
-        Room r1 = factory.MakeRoom(1);
-        Room r2 = factory.MakeRoom(2);
+        Room r1 = factory.MakeRoom(0);
+        Room r2 = factory.MakeRoom(1);
         IDoor aDoor = factory.MakeDoor(r1, r2);
         aMaze.AddRoom(r1);
         aMaze.AddRoom(r2);

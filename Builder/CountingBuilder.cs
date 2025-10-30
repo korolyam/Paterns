@@ -32,11 +32,6 @@ namespace Builder
             this.doors++;
         }
 
-        public IMaze GetMaze()
-        {
-            return null;
-        }
-
         public int GetCounts()
         {
             return this.doors + this.rooms;

@@ -14,6 +14,7 @@ namespace Builder
     public class StandartMazeBuilder : IMazeBuilder
     {
         private Maze currentMaze = null;
+        private int lastRoomId = 0;
 
         private Direction CommonWall(Room roomOriginal, Room roomHelper)
         {
@@ -60,20 +61,17 @@ namespace Builder
                 var direction = (Direction)directions.GetValue(directionIndex);
                 switch (direction)
                 {
-                    case Direction.North: room.SetSide(Direction.North, this.currentMaze.GetRoomFromItsInternalId(this.currentMaze.NumberOfRooms-2).GetSide(Direction.South)); break;
-                    case Direction.East: room.SetSide(Direction.East, this.currentMaze.GetRoomFromItsInternalId(this.currentMaze.NumberOfRooms-2).GetSide(Direction.West)); break;
-                    case Direction.West: room.SetSide(Direction.West, this.currentMaze.GetRoomFromItsInternalId(this.currentMaze.NumberOfRooms-2).GetSide(Direction.East)); break;
-                    case Direction.South: room.SetSide(Direction.South, this.currentMaze.GetRoomFromItsInternalId(this.currentMaze.NumberOfRooms-2).GetSide(Direction.North)); break;
+                    case Direction.North: room.SetSide(Direction.North, this.currentMaze.GetRoomFromItsInternalId(this.lastRoomId).GetSide(Direction.South)); break;
+                    case Direction.East: room.SetSide(Direction.East, this.currentMaze.GetRoomFromItsInternalId(this.lastRoomId).GetSide(Direction.West)); break;
+                    case Direction.West: room.SetSide(Direction.West, this.currentMaze.GetRoomFromItsInternalId(this.lastRoomId).GetSide(Direction.East)); break;
+                    case Direction.South: room.SetSide(Direction.South, this.currentMaze.GetRoomFromItsInternalId(this.lastRoomId).GetSide(Direction.North)); break;
                 }
             }
+            this.lastRoomId = roomId;
         }
 
         public void BuildDoor( int r1, int r2)
         {
-            if (r1 > this.currentMaze.NumberOfRooms || r2 > this.currentMaze.NumberOfRooms)
-            {
-                throw new ArgumentException("Таких комнат нет");
-            }
             Room roomOut = this.currentMaze.GetRoomFromItsInternalId(r1);
             Room roomIn = this.currentMaze.GetRoomFromItsInternalId(r2);
             CommonDoor door = new CommonDoor(roomOut, roomIn);

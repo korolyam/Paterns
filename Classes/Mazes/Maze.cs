@@ -9,7 +9,7 @@ namespace Classes.Mazes
 {
     public class Maze : IMaze
     {
-        public int NumberOfRooms { get; set; }
+        public int NumberOfRooms { get { return rooms.Count; } }
 
         private List<Room> rooms;
 
@@ -20,21 +20,20 @@ namespace Classes.Mazes
 
         public void AddRoom(Room room)
         {
-            if (room == null)
+            if (room == null || rooms.Any(x => x.NoOfRoom == room.NoOfRoom))
             {
-                throw new ArgumentNullException("Такой комнаты нет");
+                throw new ArgumentNullException("Такой комнаты нет или комната с таким номером уже существует");
             }
-            NumberOfRooms++;
             this.rooms.Add(room);
         }
 
         public Room GetRoomFromItsInternalId(int roomId)
         {
-            if (roomId > NumberOfRooms)
+            if (!rooms.Any(x => x.NoOfRoom == roomId))
             {
                 throw new ArgumentOutOfRangeException("Такой комнаты нет");
             }
-            return this.rooms[roomId];
+            return rooms.First(x => x.NoOfRoom == roomId);
         }
     }
 }

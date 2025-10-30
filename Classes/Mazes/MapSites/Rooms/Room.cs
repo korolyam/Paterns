@@ -9,7 +9,7 @@ namespace Classes.Mazes.MapSites.Rooms
 {
     public abstract class Room : IMapSite
     {
-        protected int NoOfRoom { get; set; }
+        public int NoOfRoom { get;  protected set; }
         protected Dictionary<Direction, IMapSite> Sides { get; set; }
         public virtual void SetSide(Direction direction, IMapSite side)
         {

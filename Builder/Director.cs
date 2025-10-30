@@ -24,5 +24,17 @@ namespace Builder
             this.builder.BuildDoor(0, 1);
             return this.builder.GetMaze();
         }
+
+        public IMaze CreateBigMaze()
+        {
+            this.builder.BuildMaze();
+            for (int i = 0; i < 100; i+=2)
+            {
+                this.builder.BuildRoom(i);
+                this.builder.BuildRoom(i + 1);
+                this.builder.BuildDoor(i, i + 1);
+            }
+            return this.builder.GetMaze();
+        }
     }
 }
