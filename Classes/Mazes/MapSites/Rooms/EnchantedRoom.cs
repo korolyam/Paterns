@@ -8,17 +8,9 @@ namespace Classes.Mazes.MapSites.Rooms
 {
     public class EnchantedRoom : Room
     {
-        public EnchantedRoom(int noOfRoom, Spell spell)
+        public EnchantedRoom(int noOfRoom, Spell spell) : base(noOfRoom)
         {
-            if (noOfRoom >= 0)
-            {
-                NoOfRoom = noOfRoom;
-                Sides = new Dictionary<Direction, IMapSite>();
-            }
-            else
-            {
-                throw new ArgumentException("У лабиринта не может быть отрицательной (или нулевой) комнаты");
-            }
+            
         }
     }
 }

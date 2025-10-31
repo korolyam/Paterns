@@ -11,8 +11,6 @@ namespace Classes.Mazes.MapSites.Doors
     {
         public DoorNeedingSpell(Room roomOut, Room roomIn) : base(roomOut,roomIn)
         {
-            RoomOut = roomOut ?? throw new ArgumentNullException("Такой комнаты нет");
-            RoomIn = roomIn ?? throw new ArgumentNullException("Такой комнаты нет");
             IsOpen = false;
         }
     }   

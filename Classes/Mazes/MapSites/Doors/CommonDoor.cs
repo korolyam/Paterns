@@ -9,8 +9,8 @@ namespace Classes.Mazes.MapSites.Doors
 {
     public class CommonDoor : IDoor
     {
-        protected Room RoomOut { get; set; }
-        protected Room RoomIn { get; set; }
+        protected Room RoomOut { get; private set; }
+        protected Room RoomIn { get; private set; }
         protected bool IsOpen { get; set; }
         public CommonDoor(Room roomOut, Room roomIn)
         {

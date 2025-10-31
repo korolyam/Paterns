@@ -9,8 +9,19 @@ namespace Classes.Mazes.MapSites.Rooms
 {
     public abstract class Room : IMapSite
     {
-        public int NoOfRoom { get;  protected set; }
-        protected Dictionary<Direction, IMapSite> Sides { get; set; }
+        public int NoOfRoom { get;  private set; }
+        protected Dictionary<Direction, IMapSite> Sides { get; private set; }
+
+        public Room(int noOfRoom)
+        {
+            if (noOfRoom < 0)
+            {
+                throw new ArgumentOutOfRangeException("Отрицательных комнат не бывает");
+            }
+            NoOfRoom = noOfRoom;
+            Sides = new Dictionary<Direction, IMapSite>();
+        }
+
         public virtual void SetSide(Direction direction, IMapSite side)
         {
             if (side is Room)
