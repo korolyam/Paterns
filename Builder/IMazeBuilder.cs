@@ -12,9 +12,5 @@ namespace Builder
         void BuildMaze();
         void BuildRoom(int roomNumber);
         void BuildDoor(int roomOut, int roomIn);
-        public IMaze GetMaze()
-        {
-            return null;
-        }
     }
 }

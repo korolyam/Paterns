@@ -9,10 +9,11 @@ class MazeGame2
 {
     static void Main()
     {
-        IMazeBuilder builder = new StandartMazeBuilder();
+        StandartMazeBuilder builder = new StandartMazeBuilder();
         Director director = new Director(builder);
+        DirectorBig director2 = new DirectorBig(builder);
         IMaze maze = director.CreateSimpleMaze();
-        IMaze bigMaze = director.CreateBigMaze();
+        IMaze bigMaze = director2.CreateBigMaze();
         Console.WriteLine("Выберите комнату (1 или 2)");
         char press = Console.ReadKey().KeyChar;
         char press2;

@@ -7,21 +7,24 @@ using Classes.Mazes;
 
 namespace Builder
 {
-    public class Director
+    public class DirectorBig
     {
         private StandartMazeBuilder builder;
 
-        public Director(StandartMazeBuilder builder)
+        public DirectorBig(StandartMazeBuilder builder)
         {
             this.builder = builder ?? throw new ArgumentNullException(nameof(builder));
         }
 
-        public IMaze CreateSimpleMaze()
+        public IMaze CreateBigMaze()
         {
             this.builder.BuildMaze();
-            this.builder.BuildRoom(0);
-            this.builder.BuildRoom(1);
-            this.builder.BuildDoor(0, 1);
+            for (int i = 0; i < 100; i+=2)
+            {
+                this.builder.BuildRoom(i);
+                this.builder.BuildRoom(i + 1);
+                this.builder.BuildDoor(i, i + 1);
+            }
             return this.builder.GetMaze();
         }
     }
