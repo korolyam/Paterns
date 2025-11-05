@@ -8,41 +8,34 @@ using Classes.Mazes.MapSites.Rooms;
 using Classes.Mazes.MapSites.Doors;
 using Classes.Mazes.MapSites.Walls;
 
-namespace AsbtractFactory.MazeFactories
-{
-    public class CommonMazeFactory : IMazeFactory
+    public class EnchantedMazeCreator : MazeCreator
     {
-        public CommonMazeFactory()
+        public EnchantedMazeCreator()
         {
 
         }
 
-        public IMaze MakeMaze()
-        {
-            return new Maze();
-        }
-
-        public Room MakeRoom(int n)
+        protected override Room MakeRoom(int n)
         {
             if (n >= 0)
             {
-                return new CommonRoom(n);
+                return new EnchantedRoom(n, CastSpell());
             }
             throw new ArgumentOutOfRangeException("Нельзя создать комнату с отрицательным значением");
         }
-         
-        public IDoor MakeDoor(Room room1, Room room2)
+
+        protected override IDoor MakeDoor(Room room1, Room room2)
         {
             if (room1 == null || room2 == null)
             {
                 throw new ArgumentNullException("Таких комнат ещё нет");
             }
-            return new CommonDoor(room1, room2);
+            return new DoorNeedingSpell(room1, room2);
         }
 
-        public IWall MakeWall()
+        protected Spell CastSpell()
         {
-            return new CommonWall();
+            return new Spell();
         }
     }
-}
+

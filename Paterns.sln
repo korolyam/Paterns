@@ -10,7 +10,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsbtractFactory", "Asbtract
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes", "Classes\Classes.csproj", "{DB4037F3-E1DD-4B7E-9672-899624E67655}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder", "Builder\Builder.csproj", "{0FB04E53-FD5E-4744-8334-57AD7556DDED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Builder", "Builder\Builder.csproj", "{0FB04E53-FD5E-4744-8334-57AD7556DDED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB4037F3-E1DD-4B7E-9672-899624E67655} = {DB4037F3-E1DD-4B7E-9672-899624E67655}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod", "FactoryMethod\FactoryMethod.csproj", "{E8C8C2D7-5ED5-4AD5-856E-DBDDC1BD96DD}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DB4037F3-E1DD-4B7E-9672-899624E67655} = {DB4037F3-E1DD-4B7E-9672-899624E67655}
 	EndProjectSection
@@ -33,6 +38,10 @@ Global
 		{0FB04E53-FD5E-4744-8334-57AD7556DDED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FB04E53-FD5E-4744-8334-57AD7556DDED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FB04E53-FD5E-4744-8334-57AD7556DDED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C8C2D7-5ED5-4AD5-856E-DBDDC1BD96DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C8C2D7-5ED5-4AD5-856E-DBDDC1BD96DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C8C2D7-5ED5-4AD5-856E-DBDDC1BD96DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C8C2D7-5ED5-4AD5-856E-DBDDC1BD96DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
