@@ -11,7 +11,16 @@ namespace Classes.Mazes.MapSites.Rooms
         public RoomWithABomb(int noOfRoom) : base(noOfRoom)
         {
             
+        }
 
+        public RoomWithABomb(Room room) : base(room)
+        {
+
+        }
+
+        public override RoomWithABomb Clone()
+        {
+            return new RoomWithABomb(this);
         }
     }
 }

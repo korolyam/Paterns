@@ -19,6 +19,14 @@ namespace Classes.Mazes.MapSites.Doors
             IsOpen = true;
         }
 
+        public CommonDoor(CommonDoor door)
+
+        {
+            this.RoomOut = (Room)door.RoomOut.Clone();
+            this.RoomIn = (Room)door.RoomIn.Clone();
+            this.IsOpen = door.IsOpen;
+        }
+
         public void Enter()
         {
             if (IsOpen)
@@ -29,6 +37,18 @@ namespace Classes.Mazes.MapSites.Doors
             {
                 Console.WriteLine("Вы ударились о закрытую дверь");
             }
+        }
+
+        public IMapSite Clone()
+        {
+            return new CommonDoor(this);
+        }
+        
+        public void Initialize (Room roomIn, Room roomOut)
+        {
+            RoomOut = roomOut ?? throw new ArgumentNullException("Такой комнаты нет");
+            RoomIn = roomIn ?? throw new ArgumentNullException("Такой комнаты нет");
+            IsOpen = true;
         }
     }
 }

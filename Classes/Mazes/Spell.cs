@@ -12,5 +12,15 @@ namespace Classes.Mazes
         {
 
         }
+
+        public Spell(Spell spell)
+        {
+
+        }
+
+        public Spell Clone()
+        {
+            return new Spell(this);
+        }
     }
 }

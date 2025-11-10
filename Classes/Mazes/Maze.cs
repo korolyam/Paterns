@@ -18,6 +18,20 @@ namespace Classes.Mazes
             this.rooms = new List<Room>();
         }
 
+        public Maze(Maze otherMaze )
+        {
+            this.rooms = new List<Room>();
+            foreach(var room in otherMaze.rooms)
+            {
+                this.rooms.Add((Room)room.Clone());
+            }
+        }
+
+        public Maze Clone()
+        {
+            return new Maze(this);
+        }
+
         public void AddRoom(Room room)
         {
             if (room == null || rooms.Any(x => x.NoOfRoom == room.NoOfRoom))

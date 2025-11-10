@@ -15,6 +15,21 @@ namespace Classes.Mazes.MapSites.Rooms
             this.spell = spell;    
         }
 
+        public EnchantedRoom(EnchantedRoom room) : base(room)
+        {
+            this.spell = room.spell.Clone();
+        }
+
+        public override EnchantedRoom Clone()
+        {
+            return new EnchantedRoom(this);
+        }
+
+        public void Initialize(Spell spell)
+        {
+            this.spell = spell ?? throw new ArgumentNullException("Пустое заклятие");
+        }
+
         public void Enter(Direction direction)
         {
             this.Sides[Direction.East].Enter();

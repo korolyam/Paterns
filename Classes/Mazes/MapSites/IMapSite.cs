@@ -9,5 +9,7 @@ namespace Classes.Mazes.MapSites
     public interface IMapSite
     {
         void Enter();
+
+        IMapSite Clone();
     }
 }

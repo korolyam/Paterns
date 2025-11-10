@@ -13,6 +13,16 @@ namespace Classes.Mazes.MapSites.Doors
         {
             IsOpen = false;
         }
+
+        public DoorNeedingSpell(CommonDoor door) : base(door)
+        {
+            IsOpen = false;
+        }
+
+        public new IMapSite Clone()
+        {
+            return new DoorNeedingSpell(this);
+        }
     }   
 }
 

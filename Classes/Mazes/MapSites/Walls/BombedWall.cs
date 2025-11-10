@@ -13,6 +13,16 @@ namespace Classes.Mazes.MapSites.Walls
             
         }
 
+        public BombedWall(IWall wall)
+        {
+
+        }
+
+        public IMapSite Clone()
+        {
+            return new BombedWall(this);
+        }
+
         public void Enter()
         {
             Console.WriteLine("Вы прошли через взорванную стену");

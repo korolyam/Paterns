@@ -13,6 +13,16 @@ namespace Classes.Mazes.MapSites.Walls
             
         }
 
+        public CommonWall(IWall wall)
+        {
+            
+        }
+
+        public IMapSite Clone()
+        {
+            return new CommonWall(this);
+        }
+
         public void Enter()
         {
             Console.WriteLine("Вы ударились о стену");

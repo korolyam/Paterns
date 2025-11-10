@@ -12,5 +12,15 @@ namespace Classes.Mazes.MapSites.Rooms
         {
 
         }
+
+        public CommonRoom(Room room) : base(room)
+        {
+
+        }
+
+        public override CommonRoom Clone()
+        {
+            return new CommonRoom(this);
+        }
     }
 }
