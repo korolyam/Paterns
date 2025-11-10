@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AsbtractFactory.MazeFactories;
+using Classes.Mazes.MapSites;
+using Classes.Mazes;
+using Classes.Mazes.MapSites.Doors;
+using Classes.Mazes.MapSites.Rooms;
+using Classes.Mazes.MapSites.Walls;
+
+namespace Singleton
+{
+    public class MazeSingularFactory : IMazeFactory
+    {
+        private static IMazeFactory? _instance = null;
+
+        private MazeSingularFactory()
+        {
+
+        }
+
+        public static MazeSingularFactory Instance()
+        {
+            if (_instance == null)
+            {
+                _instance = new MazeSingularFactory();
+            }
+            return (MazeSingularFactory)_instance;
+        }
+
+        public IMaze MakeMaze()
+        {
+            return new Maze();
+        }
+
+        public Room MakeRoom(int n)
+        {
+            if (n >= 0)
+            {
+                return new CommonRoom(n);
+            }
+            throw new ArgumentOutOfRangeException("Нельзя создать комнату с отрицательным значением");
+        }
+
+        public IDoor MakeDoor(Room room1, Room room2)
+        {
+            if (room1 == null || room2 == null)
+            {
+                throw new ArgumentNullException("Таких комнат ещё нет");
+            }
+            return new CommonDoor(room1, room2);
+        }
+
+        public IWall MakeWall()
+        {
+            return new CommonWall();
+        }
+    }
+}
