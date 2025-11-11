@@ -48,7 +48,6 @@ namespace Classes.Mazes.MapSites.Doors
         {
             RoomOut = roomOut ?? throw new ArgumentNullException("Такой комнаты нет");
             RoomIn = roomIn ?? throw new ArgumentNullException("Такой комнаты нет");
-            IsOpen = true;
         }
     }
 }
