@@ -34,6 +34,7 @@ namespace RemoteControlClassLibrary
             {
                 _isBackChannel = true;
                 _backChannel = _currentChannel;
+                _number = number;  
                 _currentChannel = number;
             }
         }
