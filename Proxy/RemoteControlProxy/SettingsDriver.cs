@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Decorator.RemoteControlDecorator
+namespace ProxyProject.RemoteControlProxy
 {
-    public class SettingsDriver : Driver
+    public class SettingsDriver : IDriver
     {
         private Settings _settings;
 
@@ -16,7 +16,7 @@ namespace Decorator.RemoteControlDecorator
             _settings = settings;
         }
 
-        public override void Operation()
+        public void Operation()
         {
             _settings.BrightnessUp();
             _settings.BrightnessUp();

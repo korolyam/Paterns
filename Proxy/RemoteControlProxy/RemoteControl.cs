@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DecoratorProject.RemoteControlDecorator
+namespace ProxyProject.RemoteControlProxy
 {
     public class RemoteControl
     {
-        public static void Use(Power power, Decorator decorator)
+        public static void Use(Power power, IDriver driver)
         {
             power.TurnOn();
-            decorator.Operation();
+            driver.Operation();
             power.TurnOff();
         }
     }

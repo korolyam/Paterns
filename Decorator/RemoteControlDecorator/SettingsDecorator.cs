@@ -5,22 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Decorator.RemoteControlDecorator
+namespace DecoratorProject.RemoteControlDecorator
 {
     public class SettingsDecorator : Decorator
     {
-        private SettingsDriver _settingsDriver;
+        private Settings _settings;
 
-        public SettingsDecorator(Driver driver, SettingsDriver settingsDriver) : base(driver) 
+        public SettingsDecorator(Settings settings, Decorator decorator) : base(decorator)
         {
-            _settingsDriver = settingsDriver;
+            _settings = settings;
         }
 
         public override void Operation()
         {
             base.Operation();
-            _settingsDriver.Operation();
-            
+            _settings.BrightnessUp();
+            _settings.BrightnessUp();
+            _settings.BrightnessDown();
+            _settings.Subtitles();
+            _settings.SetBrightness(77);
         }
     }
 }

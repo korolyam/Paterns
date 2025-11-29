@@ -5,20 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using RemoteControlClassLibrary;
 
-namespace Decorator.RemoteControlDecorator
+namespace DecoratorProject.RemoteControlDecorator
 {
-    public abstract class Decorator : Driver
+    public class Decorator 
     {
-        private Driver _driver;
-
-        public Decorator(Driver driver) 
+        public Decorator()
         {
-            _driver = driver;
+
         }
 
-        public override void Operation()
+        public Decorator(Decorator decorator)
         {
-            _driver.Operation();
+
+        }
+
+        public virtual void Operation()
+        {
+
         }
     }
 }

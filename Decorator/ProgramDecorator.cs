@@ -1,7 +1,7 @@
 ﻿using RemoteControlClassLibrary;
-using Decorator.RemoteControlDecorator;
+using DecoratorProject.RemoteControlDecorator;
 
-namespace Decorator
+namespace DecoratorProject
 {
     public class ProgrammDecorator
     {
@@ -12,25 +12,21 @@ namespace Decorator
             Sound sound = new Sound();
             Channel channel = new Channel();
 
-            SettingsDriver settingsDriver = new SettingsDriver(settings);
-            SoundDriver soundDriver = new SoundDriver(sound);
-            ChannelDriver channelDriver = new ChannelDriver(channel);
-
             Console.WriteLine("---------------------- Пульт с Power ----------------------");
-            Driver mainDriver = new Driver();
-            RemoteControl.Use(power, mainDriver);
+            Decorator mainDecorator = new Decorator();
+            RemoteControl.Use(power, mainDecorator);
 
             Console.WriteLine("---------------------- Пульт с Power + Settings ----------------------");
-            mainDriver = new SettingsDecorator(mainDriver, settingsDriver);
-            RemoteControl.Use(power, mainDriver);
+            mainDecorator = new SettingsDecorator(settings, mainDecorator);
+            RemoteControl.Use(power, mainDecorator);
 
             Console.WriteLine("---------------------- Пульт с Power + Settings + Sound ----------------------");
-            mainDriver = new SoundDecorator(mainDriver, soundDriver);
-            RemoteControl.Use(power, mainDriver);
+            mainDecorator = new SoundDecorator(sound,mainDecorator);
+            RemoteControl.Use(power, mainDecorator);
 
             Console.WriteLine("---------------------- Пульт с Power + Settings + Sound + Channel ----------------------");
-            mainDriver = new ChannelDecorator(mainDriver, channelDriver);
-            RemoteControl.Use(power, mainDriver);
+            mainDecorator = new ChannelDecorator(channel,mainDecorator);
+            RemoteControl.Use(power, mainDecorator);
         }
     }
 }

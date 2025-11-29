@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using RemoteControlClassLibrary;
 
-namespace Decorator.RemoteControlDecorator
+namespace ProxyProject.RemoteControlProxy
 {
-    public class ChannelDriver : Driver
+    public class ChannelDriver : IDriver
     {
         private Channel _channel;
 
@@ -16,7 +16,7 @@ namespace Decorator.RemoteControlDecorator
             _channel = channel;
         }
 
-        public override void Operation()
+        public void Operation()
         {
             _channel.List();
             _channel.ForNumber(6);

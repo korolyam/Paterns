@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Decorator.RemoteControlDecorator
+namespace ProxyProject.RemoteControlProxy
 {
-    public class SoundDriver : Driver
+    public class SoundDriver : IDriver
     {
         private Sound _sound;
 
@@ -16,7 +16,7 @@ namespace Decorator.RemoteControlDecorator
             _sound = sound;
         }
 
-        public override void Operation()
+        public void Operation()
         {
             _sound.VolumeUp();
             _sound.VolumeUp();
