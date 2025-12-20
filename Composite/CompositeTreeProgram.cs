@@ -2,40 +2,48 @@
 
 namespace CompositeProject
 {
-    class program
+    class ProgramCompsoite
     {
-        static void Main()
+        public static void Main(string[] args)
         {
-            try
+            BinaryTree tree = new BinaryTree();
+            tree.Add(5);
+            tree.Add(12);
+            tree.Add(1);
+            tree.Add(7);
+            tree.Add(0);
+            tree.Add(8);
+            tree.Add(2);
+            tree.Add(6);
+            Console.WriteLine($"Количество элементов = {tree.Count}");
+            Console.WriteLine($"Высота дерева = {tree.Height()}");
+            tree.Max();
+            tree.Min();
+            tree.IsEmptyString();
+            tree.Contains(5);
+            tree.Contains(3);
+            Console.WriteLine("Элементы дерева в прямом порядке:");
+            foreach (var value in tree)
             {
-                Composite root = new Composite(7);
-                Composite node1 = new Composite(3);
-                Composite node2 = new Composite(4);
-                Leaf leaf1 = new Leaf(2);
-                Leaf leaf2 = new Leaf(1);
-                root.Add(node1);
-                root.Add(leaf1);
-                node1.Add(node2);
-                node2.Add(leaf2);
-                List<double> res1 = root.GetValueOfAllChildren();
-                foreach (double value in res1)
-                {
-                    Console.Write(value + " ");
-                }
-                Console.WriteLine();
-                node2.Remove(leaf2);
-                node1.Add(leaf2);
-                List<double> res2 = root.GetValueOfAllChildren();
-                foreach (double value in res2)
-                {
-                    Console.Write(value + " ");
-                }
-                Console.WriteLine();
+                Console.Write(value + " ");
             }
-            catch(Exception ex)
+            Console.WriteLine();
+            tree.ReverseDirection();
+            Console.WriteLine("Элементы дерева в обратном порядке:");
+            foreach (var value in tree)
             {
-                Console.WriteLine(ex.Message);
+                Console.Write(value + " ");
             }
+            Console.WriteLine();
+            tree.Clear();
+            Console.WriteLine($"Количество элементов = {tree.Count}");
+            tree.IsEmptyString();
+            Console.WriteLine("Элементы дерева в обратном порядке:");
+            foreach (var value in tree)
+            {
+                Console.Write(value + " ");
+            }
+            Console.WriteLine();
         }
     }
 }
