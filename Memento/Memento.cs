@@ -8,7 +8,8 @@ namespace MementoProject
 {
     public class Memento
     {
-        public string _state { get; }
+        private string _state;
+        public string State { get { return _state; } }
 
         public Memento(string state)
         {

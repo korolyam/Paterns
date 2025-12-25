@@ -18,7 +18,7 @@
 
         public void Restore(Memento memento)
         {
-            _state = memento._state;
+            _state = memento.State;
             Console.WriteLine("Restored to state: " + _state);
         }
     }
